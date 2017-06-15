@@ -14,7 +14,7 @@ version: '2'
 services:
 
   nginx-consul-template:
-    image: oring/nginx-consul-template:latest
+    image: benjamin658/nginx-consul-template:latest
     ports:
       - 80:80
     depends_on:
