@@ -5,10 +5,16 @@ Docker image with `Nginx` and the `Consul Template` to update its configuration 
 
 [Docker Hub Link](https://hub.docker.com/r/oring/nginx-consul-template/)
 
+## Prerequisite
+
+1. [Consul Server](https://github.com/hashicorp/consul)
+2. [Registrator](https://github.com/gliderlabs/registrator)
+
 ## Environment variable
 
 * `CONSUL_SERVER` : Consul server location, default: `consul:8500`.
 * `SERVICE` : Service name, should be equal to target service's SERVICE_NAME.
+
 
 ## docker-compose example
 
