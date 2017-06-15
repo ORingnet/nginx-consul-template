@@ -6,7 +6,6 @@ RUN apt-get update -qq && apt-get -y install curl unzip
 
 ENV CONSUL_TEMPLATE_VERSION 0.18.5
 ENV CONSUL_SERVER consul:8500
-ENV TEMPLATE /etc/consul-templates/nginx.ctmpl
 
 ADD https://releases.hashicorp.com/consul-template/${CONSUL_TEMPLATE_VERSION}/consul-template_${CONSUL_TEMPLATE_VERSION}_SHA256SUMS /tmp/
 ADD https://releases.hashicorp.com/consul-template/${CONSUL_TEMPLATE_VERSION}/consul-template_${CONSUL_TEMPLATE_VERSION}_linux_amd64.zip /tmp/
