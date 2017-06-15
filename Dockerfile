@@ -1,5 +1,7 @@
 FROM nginx:stable
 
+MAINTAINER benjamin658gae@gmail.com
+
 RUN apt-get update -qq && apt-get -y install curl unzip
 
 ENV CONSUL_TEMPLATE_VERSION 0.18.5
