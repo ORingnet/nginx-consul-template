@@ -1,29 +1,37 @@
 # Nginx Consul Template
 
-Based on Consul service discovery, it will auto reload nginx when new target service is registered.
+Docker image with `Nginx` and the `Consul Template` to update its configuration file from consul dynamically.
+
+
+[Docker Hub Link](https://hub.docker.com/r/oring/nginx-consul-template/)
 
 ## Environment variable
 
-  * `CONSUL_SERVER` : Consul server location.
-  * `SERVICE` : Service name, should be equal to service's SERVICE_NAME tag.
+* `CONSUL_SERVER` : Consul server location, default: `consul:8500`.
+* `SERVICE` : Service name, should be equal to target service's SERVICE_NAME.
 
-## Docker-compose Example
+## docker-compose example
 
 ```
 version: '2'
 services:
 
   nginx-consul-template:
-    image: benjamin658/nginx-consul-template:latest
+    image: oring/nginx-consul-template:latest
     ports:
       - 80:80
-    depends_on:
-      - hello-world
     environment: 
       - CONSUL_SERVER=consul:8500
       - SERVICE=hello-world
 
-  hello-world:
+  hello-world-1:
+    image: tutum/hello-world
+    ports:
+      - 80
+    environment:
+      - SERVICE_NAME=hello-world
+
+  hello-world-2:
     image: tutum/hello-world
     ports:
       - 80
