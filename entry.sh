@@ -8,7 +8,7 @@ echo "upstream app {                 \n\
   server  {{.Address}}:{{.Port}};        \n\
   {{else}}server 127.0.0.1:65535;{{end}} \n\
 }                                        \n\
-" > $TEMPLATE;
+" >> $TEMPLATE;
 
 /usr/sbin/nginx -c /etc/nginx/nginx.conf \
 & CONSUL_TEMPLATE_LOG=debug consul-template \
