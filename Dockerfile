@@ -18,5 +18,6 @@ RUN cd /tmp && \
     rm -rf /tmp
 
 RUN mkdir /etc/consul-templates
+ADD nginx.ctmpl /etc/consul-templates
 
 CMD ["/entry.sh"]
