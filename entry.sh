@@ -10,6 +10,9 @@ echo "upstream app {                 \n\
 }                                        \n\
 " >> $TEMPLATE;
 
+$/usr/sbin/nginx -c /etc/nginx/nginx.conf -t && \
+	/usr/sbin/nginx -c /etc/nginx/nginx.conf -g "daemon on;"
+
 /usr/sbin/nginx -c /etc/nginx/nginx.conf \
 & CONSUL_TEMPLATE_LOG=debug consul-template \
   -consul=$CONSUL_SERVER \
