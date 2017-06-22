@@ -13,4 +13,4 @@ echo "upstream app {                 \n\
 /usr/sbin/nginx -c /etc/nginx/nginx.conf \
 & CONSUL_TEMPLATE_LOG=debug consul-template \
   -consul=$CONSUL_SERVER \
-  -template "/etc/consul-templates/nginx.ctmpl:/etc/nginx/conf.d/app.conf:sv hup nginx || true";
+  -template "/etc/consul-templates/nginx.ctmpl:/etc/nginx/conf.d/default.conf:/usr/sbin/nginx -s reload";
