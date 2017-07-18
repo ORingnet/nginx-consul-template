@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sed -ie "s/#service/${$SERVICE}/g" /etc/consul-templates/nginx.ctmpl
+sed -ie "s/#service/${SERVICE}/g" /etc/consul-templates/nginx.ctmpl
 
 $/usr/sbin/nginx -c /etc/nginx/nginx.conf -t && \
 	/usr/sbin/nginx -c /etc/nginx/nginx.conf -g "daemon on;"
