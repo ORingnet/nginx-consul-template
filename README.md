@@ -44,3 +44,7 @@ services:
     environment:
       - SERVICE_NAME=hello-world
 ```
+
+## License
+
+[MIT](LICENSE)
