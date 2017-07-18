@@ -1,14 +1,6 @@
 #!/bin/sh
 
-TEMPLATE=/etc/consul-templates/nginx.ctmpl
-
-echo "upstream app {                 \n\
-  least_conn;                            \n\
-  {{range service \"$SERVICE\"}}         \n\
-  server  {{.Address}}:{{.Port}};        \n\
-  {{else}}server 127.0.0.1:65535;{{end}} \n\
-}                                        \n\
-" >> $TEMPLATE;
+sed -ie "s/#service/${$SERVICE}/g" /etc/consul-templates/nginx.ctmpl
 
 $/usr/sbin/nginx -c /etc/nginx/nginx.conf -t && \
 	/usr/sbin/nginx -c /etc/nginx/nginx.conf -g "daemon on;"
