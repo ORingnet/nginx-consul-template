@@ -19,5 +19,6 @@ RUN cd /tmp && \
 
 RUN mkdir /etc/consul-templates
 ADD nginx.ctmpl /etc/consul-templates
+ADD gzip.conf /etc/nginx/conf.d
 
 CMD ["/entry.sh"]
